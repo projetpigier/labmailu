@@ -21,7 +21,7 @@ services:
     restart: always
     env_file: mailu.env
     logging:
-      driver: journald
+#      driver: journald
       options:
         tag: mailu-front
     ports:
@@ -50,7 +50,7 @@ services:
     image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}unbound:${MAILU_VERSION:-2024.06}
     env_file: mailu.env
     logging:
-      driver: journald
+#      driver: journald
       options:
         tag: mailu-resolver
     restart: always
@@ -63,7 +63,7 @@ services:
     restart: always
     env_file: mailu.env
     logging:
-      driver: journald
+ #     driver: journald
       options:
         tag: mailu-admin
     volumes:
@@ -80,7 +80,7 @@ services:
     restart: always
     env_file: mailu.env
     logging:
-      driver: journald
+ #     driver: journald
       options:
         tag: mailu-imap
     volumes:
@@ -99,7 +99,7 @@ services:
     restart: always
     env_file: mailu.env
     logging:
-      driver: journald
+ #     driver: journald
       options:
         tag: mailu-smtp
     volumes:
@@ -119,7 +119,7 @@ services:
     restart: always
     env_file: mailu.env
     logging:
-      driver: journald
+ #     driver: journald
       options:
         tag: mailu-antispam
     networks:
@@ -144,7 +144,7 @@ services:
     restart: always
     env_file: mailu.env
     logging:
-      driver: journald
+#      driver: journald
       options:
         tag: mailu-webmail
     volumes:
