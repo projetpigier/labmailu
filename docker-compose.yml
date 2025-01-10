@@ -154,53 +154,53 @@ services:
       - 192.168.203.254
 
   # Optional services
-  antivirus:
-    image: clamav/clamav-debian:1.2.0-6
-    restart: always
-    logging:
-      driver: json-file
-      options:
-        tag: mailu-antivirus
-    networks:
-      - clamav
-    volumes:
-      - "../mailu/filter/clamav:/var/lib/clamav"
-    healthcheck:
-      test: ["CMD-SHELL", "kill -0 `cat /tmp/clamd.pid` && kill -0 `cat /tmp/freshclam.pid`"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
+#  antivirus:
+#    image: clamav/clamav-debian:1.2.0-6
+#    restart: always
+#    logging:
+#      driver: json-file
+#      options:
+#        tag: mailu-antivirus
+#    networks:
+#      - clamav
+#    volumes:
+#      - "../mailu/filter/clamav:/var/lib/clamav"
+#    healthcheck:
+#      test: ["CMD-SHELL", "kill -0 `cat /tmp/clamd.pid` && kill -0 `cat /tmp/freshclam.pid`"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 3
+#      start_period: 10s
 
-  webdav:
-    image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}radicale:${MAILU_VERSION:-2024.06}
-    restart: always
-    logging:
-      driver: json-file
-      options:
-        tag: mailu-webdav
-    volumes:
-      - "../mailu/dav:/data"
-    networks:
-      - radicale
+#  webdav:
+#    image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}radicale:${MAILU_VERSION:-2024.06}
+#    restart: always
+#    logging:
+#      driver: json-file
+#      options:
+#        tag: mailu-webdav
+#    volumes:
+#      - "../mailu/dav:/data"
+#    networks:
+#      - radicale
 
-  fetchmail:
-    image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}fetchmail:${MAILU_VERSION:-2024.06}
-    restart: always
-    env_file: mailu.env
-    logging:
-      driver: json-file
-      options:
-        tag: mailu-fetchmail
-    volumes:
-      - "../mailu/data/fetchmail:/data"
-    depends_on:
-      - admin
-      - smtp
-      - imap
-      - resolver
-    dns:
-      - 192.168.203.254
+#  fetchmail:
+#    image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}fetchmail:${MAILU_VERSION:-2024.06}
+#    restart: always
+#    env_file: mailu.env
+#    logging:
+#      driver: json-file
+#      options:
+#        tag: mailu-fetchmail
+#    volumes:
+#      - "../mailu/data/fetchmail:/data"
+#    depends_on:
+#      - admin
+#      - smtp
+#      - imap
+#      - resolver
+#    dns:
+#      - 192.168.203.254
 
   # Webmail
   webmail:
