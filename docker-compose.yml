@@ -148,7 +148,7 @@ services:
       - front
       - redis
       - oletools
-      - antivirus
+#      - antivirus
       - resolver
     dns:
       - 192.168.203.254
