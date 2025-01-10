@@ -128,30 +128,30 @@ services:
       - 192.168.203.254
 
 
-  antispam:
-    image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}rspamd:${MAILU_VERSION:-2024.06}
-    hostname: antispam
-    restart: always
-    env_file: mailu.env
-    logging:
-      driver: json-file
-      options:
-        tag: mailu-antispam
-    networks:
-      - default
-      - oletools
-      - clamav
-    volumes:
-      - "../mailu/filter:/var/lib/rspamd"
-      - "../mailu/overrides/rspamd:/overrides:ro"
-    depends_on:
-      - front
-      - redis
-      - oletools
-#      - antivirus
-      - resolver
-    dns:
-      - 192.168.203.254
+#  antispam:
+#    image: ${DOCKER_ORG:-ghcr.io/mailu}/${DOCKER_PREFIX:-}rspamd:${MAILU_VERSION:-2024.06}
+#    hostname: antispam
+#    restart: always
+#    env_file: mailu.env
+#    logging:
+#      driver: json-file
+#      options:
+#        tag: mailu-antispam
+#    networks:
+#      - default
+#      - oletools
+#      - clamav
+#    volumes:
+#      - "../mailu/filter:/var/lib/rspamd"
+#      - "../mailu/overrides/rspamd:/overrides:ro"
+#    depends_on:
+#      - front
+#      - redis
+#      - oletools
+##      - antivirus
+ #     - resolver
+ #   dns:
+ #     - 192.168.203.254
 
   # Optional services
 #  antivirus:
